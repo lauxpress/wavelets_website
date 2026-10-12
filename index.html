@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wavelets — podcast</title>
+  <meta name="description" content="Wavelets: conversaciones. Sintonizá cada episodio en su propia frecuencia.">
+  <meta name="theme-color" content="#030403">
+  <!-- Solo carga lo propio + las fuentes de Google; nada de scripts de terceros ni inyectados -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/iso.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=13">
+</head>
+<body>
+  <!-- Gabinete de la terminal: bisel metálico, tornillos, placa y controles -->
+  <div class="cabinet" aria-hidden="true">
+    <i class="screw s-tl"></i><i class="screw s-tr"></i><i class="screw s-bl"></i><i class="screw s-br"></i>
+    <div class="plate"><b>WAVELETS</b><span>TERMINAL DE FRECUENCIAS · MOD. P4</span></div>
+    <div class="controls">
+      <span class="led" id="led"></span>
+      <span class="knob-wrap"><i class="knob" id="knob-freq"></i><em>FREQ</em></span>
+      <span class="knob-wrap"><i class="knob" id="knob-int"></i><em>INTENS</em></span>
+    </div>
+    <div class="vents"></div>
+  </div>
+
+  <!-- Pantalla: todo lo que se ve vive adentro (esquinas curvas del tubo) -->
+  <div class="screen" id="screen">
+    <!-- Tubo: graticula curva + trazo con persistencia de fósforo + halo difuso -->
+    <div id="tube" aria-hidden="true">
+      <canvas id="grid"></canvas>
+      <canvas id="scope"></canvas>
+      <canvas id="bloom"></canvas>
+    </div>
+
+    <!-- Capas de cada episodio (fijas; su opacidad la maneja el sintonizador) -->
+    <div id="stage"></div>
+
+    <!-- Vidrio del tubo: scanlines, viñeta, grano, parpadeo -->
+    <div class="crt" aria-hidden="true">
+      <div class="crt-scan"></div>
+      <div class="crt-roll"></div>
+      <canvas class="crt-grain" id="grain"></canvas>
+      <div class="crt-glass"></div>
+      <div class="crt-vignette"></div>
+    </div>
+
+    <header class="top">
+      <a class="brand" href="#top" aria-label="Wavelets, inicio">
+        <img src="assets/logo.png" alt="Wavelets">
+      </a>
+      <div class="readout" aria-live="polite">
+        <div class="ro-row">
+          <span class="ro-label">FREQ</span>
+          <span class="ro-val" id="freq">--.--</span>
+          <span class="ro-unit">Hz</span>
+        </div>
+        <div class="ro-row ro-sub">
+          <span class="ro-dot" id="lockdot"></span>
+          <span id="lockstate">BUSCANDO SEÑAL</span>
+          <span class="ro-ch" id="channel"></span>
+        </div>
+        <div class="ro-btns">
+          <button class="sound" id="sound" type="button" aria-pressed="false" title="Escuchar la frecuencia de cada episodio">
+            <span class="sound-ico" aria-hidden="true"></span><span class="sound-txt">SONIDO</span>
+          </button>
+          <a class="sound" href="https://www.instagram.com/wavelets_podcast/" target="_blank" rel="noopener" title="Wavelets en Instagram">
+            <svg class="ig-ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="4" r=".9" fill="currentColor"/></svg><span class="sound-txt">INSTAGRAM</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dial: un tick por episodio -->
+    <nav class="dial" id="dial" aria-label="Episodios"></nav>
+
+    <div class="hint" id="hint" aria-hidden="true">
+      <span>scrolleá para sintonizar</span>
+      <i></i>
+    </div>
+
+  </div>
+
+  <!-- El scroll: una pantalla por episodio (+ cierre) -->
+  <main id="track"></main>
+
+  <script src="js/data.js?v=1791837447"></script>
+  <script src="js/scope.js?v=11"></script>
+  <script src="js/app.js?v=13"></script>
+</body>
+</html>
