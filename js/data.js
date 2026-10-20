@@ -2,6 +2,44 @@
 window.WAVELETS = {
  "episodes": [
   {
+   "n": 60,
+   "confirmed": true,
+   "published": true,
+   "guest": "Valentín González Vázquez",
+   "role": "Ex peleador de Muay Thai",
+   "title": "De pelear Muay Thai a vivir en la calle",
+   "quotes": [
+    "Me estoy reencontrando.",
+    "Empecé a caminar descalzo, rechacé la existencia del dinero y no quise volver a Buenos Aires.",
+    "La vagancia alcanza los niveles de filosofía.",
+    "El ejercicio es mi droga favorita."
+   ],
+   "links": {
+    "youtube": "https://www.youtube.com/watch?v=JyIsTvIUJPI",
+    "spotify": ""
+   },
+   "voices": [
+    {
+     "q": 0,
+     "src": "assets/voz/60-0.mp3?v=1792461137"
+    },
+    {
+     "q": 1,
+     "src": "assets/voz/60-1.mp3?v=1792461138"
+    },
+    {
+     "q": 2,
+     "src": "assets/voz/60-2.mp3?v=1792461138"
+    },
+    {
+     "q": 3,
+     "src": "assets/voz/60-3.mp3?v=1792461138"
+    }
+   ],
+   "thumb": "assets/ep/60-thumb.jpg?v=1792461150",
+   "photo": "assets/ep/60-guest.jpg?v=1792461150"
+  },
+  {
    "n": 59,
    "confirmed": true,
    "published": true,
